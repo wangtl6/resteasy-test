@@ -14,8 +14,6 @@ import com.sitech.core.architecture.bean.RetInfo;
 /**
  * 不需要输入验证码
  * @author wangtlc
- *
- * 2013-10-29
  */
 @Path("/v2/res")
 @Log4j
