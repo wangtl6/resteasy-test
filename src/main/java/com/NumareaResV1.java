@@ -17,7 +17,7 @@ import org.jboss.resteasy.annotations.providers.jaxb.json.BadgerFish;
 import com.sitech.core.architecture.bean.RetInfo;
 /**
  * 不需要输入验证码
- * @author wangtlc
+ * @author wangtlc 
  *
  * 2013-10-29
  */
