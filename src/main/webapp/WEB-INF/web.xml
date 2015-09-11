@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<!-- 	    <context-param>   -->
+<!--         <param-name>resteasy.providers</param-name>   -->
+<!--         <param-value>com.plugin.RestExceptionHandler</param-value>   -->
+<!--     </context-param>   -->
+    
+	  	<context-param>  
+		<param-name>contextConfigLocation</param-name>  
+		<param-value>classpath:springxml/*.xml</param-value>  
+	</context-param>
+<!--      <context-param>       -->
+       
+<!--          <param-name>resteasy.scan.resources</param-name>       -->
+<!--          <param-value>true</param-value>   -->
+<!--      </context-param>   -->
+
+
+<!-- 	<filter> -->
+<!-- 		<filter-name>CoreInitFilter</filter-name> -->
+<!-- 		<filter-class>com.sitech.core.architecture.filter.CoreInitFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>CoreInitFilter</filter-name> -->
+<!-- 		<url-pattern>/*</url-pattern> -->
+<!-- 		<dispatcher>REQUEST</dispatcher> -->
+<!-- 		<dispatcher>FORWARD</dispatcher> -->
+<!-- 	</filter-mapping> -->
+	<!-- Resteasy servlet -->
+	<servlet>  
+	   <servlet-name>Resteasy</servlet-name>  
+	   <servlet-class>  
+	      org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher  
+	   </servlet-class>  
+	</servlet>
+	<servlet-mapping>  
+	   <servlet-name>Resteasy</servlet-name>  
+	   <url-pattern>/v1/res/*</url-pattern>  
+	</servlet-mapping>
+		<servlet-mapping>  
+	   <servlet-name>Resteasy</servlet-name>  
+	   <url-pattern>/v2/res/*</url-pattern>  
+	</servlet-mapping>
+	<listener>  
+	   <listener-class>  
+	   com.sitech.core.plugins.resteasy.core.ResteasyBootstrapOur  
+	   </listener-class>  
+	</listener>
+	<listener>  
+		<listener-class>
+			org.jboss.resteasy.plugins.spring.SpringContextLoaderListener
+		</listener-class>  
+	</listener>	
+</web-app>
